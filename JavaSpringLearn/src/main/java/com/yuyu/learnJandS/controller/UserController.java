@@ -19,6 +19,8 @@ public class UserController {
 	@GetMapping("/getUser1")
     public String getUserById(Model model) {
 		User user = userService.getUserById(1);
+//		model.addAttribute("name", user.getName());
+//		model.addAttribute("password", user.getPassword());
 		model.addAttribute("user", user);
         return "UserResult";
     }

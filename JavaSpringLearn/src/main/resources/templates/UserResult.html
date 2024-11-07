@@ -1,11 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
-        <table action="#" th:action="@{/}" th:object="${user}" method="post">
-            <tr>
-                <td>Name:</td>
-                <td><p type="text" th:field="*{name}" /></td>
-            </tr>
-        </table>
+		<p th:text="|Hello, ${user.name}!|" />
+        <label th:text = "|Your Password is: ${user.password}"/>
     </body>
 </html>
