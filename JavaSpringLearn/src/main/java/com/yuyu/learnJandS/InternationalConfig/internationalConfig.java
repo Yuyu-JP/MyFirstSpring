@@ -13,19 +13,19 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 @Configuration
 public class internationalConfig {
 	
-	@Bean
-	MessageSource messageSource() {
-		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:i18n/messages");
-		messageSource.setDefaultEncoding("UTF-8");
-		return messageSource;
-	}
+//	@Bean
+//	MessageSource messageSource() {
+//		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+//		messageSource.setBasename("classpath:i18n/messages");
+//		messageSource.setDefaultEncoding("UTF-8");
+//		return messageSource;
+//	}
 	
-	@Bean
-    CookieLocaleResolver localeResolver() {
-        CookieLocaleResolver localeResolver = new CookieLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.US);  // 默认中文
-        return localeResolver;
-    }
+//	@Bean
+//    CookieLocaleResolver localeResolver() {
+//        CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+//        localeResolver.setDefaultLocale(Locale.CHINESE);
+//        return localeResolver;
+//    }
 	
 }
