@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.yuyu.learnJandS.Form.MyForm;
 import com.yuyu.learnJandS.Model.User;
-import com.yuyu.learnJandS.MyForm.MyForm;
 import com.yuyu.learnJandS.Service.UserService;
 
 import jakarta.validation.Valid;
