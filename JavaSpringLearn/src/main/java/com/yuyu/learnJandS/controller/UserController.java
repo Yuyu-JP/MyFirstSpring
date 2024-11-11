@@ -25,24 +25,23 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping("/SearchUser")
-	public String getUserById(UserForm userForm) {
+	public String getUserById(UserForm userForm, Model model) {
+		model.addAttribute("notExist", false);
 		return "SearchForm";
-	}
-
-	@PostMapping
-	public void createUser(@RequestBody User user) {
-		userService.createUser(user);
 	}
 
 	@PostMapping("/SearchUser")
 	public String searchUser(@Valid UserForm userForm, BindingResult bindingResult,
-			RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "SearchForm";
 		}
 		User user = userService.getUserById(userForm.getId());
 		if (user != null) {
 			redirectAttributes.addFlashAttribute("user", user);
+		} else {
+			model.addAttribute("notExist", true);
+			return "SearchForm";
 		}
 		return "redirect:/UserResult";
 	}
