@@ -22,5 +22,9 @@ public class UserServiceImpl implements UserService {
 	public int createUser(User user) {
 		return userMapper.createUser(user.getName(), user.getPassword());
 	}
+	
+	public User getUserByName(String name) {
+		return userMapper.getUserByName(name);
+	}
 
 }

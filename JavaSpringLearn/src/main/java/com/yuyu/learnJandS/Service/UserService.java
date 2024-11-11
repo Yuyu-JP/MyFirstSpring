@@ -8,4 +8,5 @@ public interface UserService {
 
 	public User getUserById(Integer id);
 	public int createUser(User user);
+	public User getUserByName(String name);
 }

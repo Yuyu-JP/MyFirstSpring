@@ -9,8 +9,12 @@
 	<insert id="createUser" parameterType="String">
 		INSERT INTO zyy.users(
 		name, password)
-		VALUES (#{name}, #{password});
+		VALUES (#{username}, #{password});
 	</insert>
+
+	<select id="getUserByName" parameterType="String" resultType="com.yuyu.learnJandS.Model.User">
+		SELECT * from zyy.users where name = #{name}
+	</select>
 
 	<!--  <update id="updateCard" parameterType="Card">
   UPDATE CARD set

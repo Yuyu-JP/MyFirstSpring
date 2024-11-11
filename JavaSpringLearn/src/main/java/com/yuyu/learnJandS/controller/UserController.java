@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.yuyu.learnJandS.Form.CreateUserForm;
 import com.yuyu.learnJandS.Form.UserForm;
 import com.yuyu.learnJandS.Model.User;
 import com.yuyu.learnJandS.Service.UserService;
@@ -18,24 +19,24 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 @Controller
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping("/SearchUser")
-    public String getUserById(UserForm userForm) {
-        return "SearchForm";
-    }
-	
+	public String getUserById(UserForm userForm) {
+		return "SearchForm";
+	}
+
 	@PostMapping
-    public void createUser(@RequestBody User user) {
-        userService.createUser(user);
-    }
-	
+	public void createUser(@RequestBody User user) {
+		userService.createUser(user);
+	}
+
 	@PostMapping("/SearchUser")
-	public String searchUser(@Valid UserForm userForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String searchUser(@Valid UserForm userForm, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
 			return "SearchForm";
 		}
@@ -45,7 +46,7 @@ public class UserController {
 		}
 		return "redirect:/UserResult";
 	}
-	
+
 	@GetMapping("/UserResult")
 	public String showUserResult(Model model) {
 		if (model.containsAttribute("user")) {
@@ -53,5 +54,40 @@ public class UserController {
 		}
 		return "UserResult";
 	}
+
+	@GetMapping("/CreateUser")
+	public String getUserById(CreateUserForm createUserForm, Model model) {
+		model.addAttribute("isExisted", false);
+		return "CreateUserForm";
+	}
+
+	@PostMapping("/CreateUser")
+	public String createUser(@Valid CreateUserForm createUserForm, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes, Model model) {
+		if (bindingResult.hasErrors()) {
+			return "CreateUserForm";
+		}
+		
+		boolean isExisted = userService.getUserByName(createUserForm.getName()) != null;
+		
+		if (isExisted) {
+			model.addAttribute("isExisted", isExisted);
+			return "CreateUserForm";
+		}
+		
+		User user = new User();
+		user.setName(createUserForm.getName());
+		user.setPassword(createUserForm.getPassword());
+		userService.createUser(user);
+		redirectAttributes.addFlashAttribute("user", user);
+		return "redirect:/CreateUserResult";
+	}
 	
+	@GetMapping("/CreateUserResult")
+	public String showCreateUserResult(Model model) {
+		if (model.containsAttribute("user")) {
+			User user = (User) model.getAttribute("user");
+		}
+		return "CreateUserResult";
+	}
 }
