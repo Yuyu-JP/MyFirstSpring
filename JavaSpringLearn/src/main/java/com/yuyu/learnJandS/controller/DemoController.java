@@ -1,5 +1,6 @@
 package com.yuyu.learnJandS.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,8 @@ public class DemoController implements WebMvcConfigurer{
 //	@Autowired
 ////	private MessageSource messageSource;
 //	
-//	@Autowired
-//	private UserService userService;
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/Demo1")
 //	@ResponseBody
@@ -41,6 +42,14 @@ public class DemoController implements WebMvcConfigurer{
 //		User user = userService.getUserById(1);
 //		model.addAttribute("user", user);
 //        return "UserResult";
+	}
+	
+	@GetMapping("/main")
+//	@ResponseBody
+	public String mainPage(Model model) {
+		List<User> users = userService.getAllUsers();
+		model.addAttribute("users", users);
+		return "Main";
 	}
 //	
 //	@Override

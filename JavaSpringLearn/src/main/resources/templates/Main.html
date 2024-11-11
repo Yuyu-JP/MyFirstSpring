@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yuyu's First Spring Demo</title>
+  </head>
+  <body>
+	 <label>Here is the list of current users</label>
+     <div>
+		<table style="border: 1px solid black; border-collapse: collapse;">
+		    <thead>
+		        <tr>
+		            <th style="border: 1px solid black; border-collapse: collapse;">ID</th>
+		            <th style="border: 1px solid black; border-collapse: collapse;">Name</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <!-- 使用 th:each 动态生成表格行 -->
+		        <tr th:each="user : ${users}">
+		            <td th:text="${user.id}" style="border: 1px solid black; border-collapse: collapse;">ID: </td>
+		            <td th:text="${user.name}" style="border: 1px solid black; border-collapse: collapse;">Name: </td>
+		        </tr>
+		    </tbody>
+		</table>
+     </div>
+  </body>
+</html>

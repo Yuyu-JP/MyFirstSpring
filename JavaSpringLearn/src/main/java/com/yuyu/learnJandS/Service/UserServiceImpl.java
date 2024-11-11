@@ -1,5 +1,7 @@
 package com.yuyu.learnJandS.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,10 @@ public class UserServiceImpl implements UserService {
 	
 	public User getUserByName(String name) {
 		return userMapper.getUserByName(name);
+	}
+	
+	public List<User> getAllUsers() {
+		return userMapper.getAllUsers();
 	}
 
 }
