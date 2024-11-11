@@ -89,4 +89,11 @@ public class UserController {
 		}
 		return "CreateUserResult";
 	}
+	
+	@GetMapping("/Login")
+	public String showLogin() {
+		return "Login";
+	}
+	
+
 }

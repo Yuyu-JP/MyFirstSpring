@@ -44,7 +44,7 @@ public class DemoController implements WebMvcConfigurer{
 //        return "UserResult";
 	}
 	
-	@GetMapping("/main")
+	@GetMapping("/Main")
 //	@ResponseBody
 	public String mainPage(Model model) {
 		List<User> users = userService.getAllUsers();

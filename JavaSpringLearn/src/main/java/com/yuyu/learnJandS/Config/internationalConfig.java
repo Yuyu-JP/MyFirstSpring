@@ -1,4 +1,4 @@
-package com.yuyu.learnJandS.InternationalConfig;
+package com.yuyu.learnJandS.Config;
 
 import java.util.Locale;
 
