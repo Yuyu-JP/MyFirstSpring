@@ -7,7 +7,7 @@ import com.yuyu.learnJandS.Model.User;
 
 @Mapper
 public interface UserMapper {
-	public int createUser(String username, String password);
+	public int createUser(String username, String password, String role);
 	public User getUserById(Integer id);
 	public User getUserByName(String name);
 	public List<User> getAllUsers();

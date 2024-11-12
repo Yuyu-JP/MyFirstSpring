@@ -8,8 +8,8 @@
 
 	<insert id="createUser" parameterType="String">
 		INSERT INTO zyy.users(
-		name, password)
-		VALUES (#{username}, #{password});
+		name, password, role)
+		VALUES (#{username}, #{password}, #{role});
 	</insert>
 
 	<select id="getUserByName" parameterType="String" resultType="com.yuyu.learnJandS.Model.User">

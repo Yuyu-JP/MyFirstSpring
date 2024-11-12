@@ -77,6 +77,7 @@ public class UserController {
 		User user = new User();
 		user.setName(createUserForm.getName());
 		user.setPassword(createUserForm.getPassword());
+		user.setRole("ADMIN");
 		userService.createUser(user);
 		redirectAttributes.addFlashAttribute("user", user);
 		return "redirect:/CreateUserResult";

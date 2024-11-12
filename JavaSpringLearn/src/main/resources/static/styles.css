@@ -1,0 +1,91 @@
+/* styles.css */
+
+/* General reset and layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f9;
+  color: #333;
+  position: relative;
+}
+
+/* Container styling */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sign Out button in the upper-right corner */
+.signout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.signout-button:hover {
+  background-color: #45a049;
+}
+
+/* Button styling */
+.button, .create-user-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.button:hover, .create-user-button:hover {
+  background-color: #45a049;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders are shared */
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd; /* Adds a border around the table */
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd; /* Adds borders to each cell */
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Label styling */
+label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  margin-bottom: 10px;
+}
