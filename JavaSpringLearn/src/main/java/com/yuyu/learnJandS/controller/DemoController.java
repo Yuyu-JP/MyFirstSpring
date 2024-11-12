@@ -21,57 +21,57 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-
-
 @Controller
-public class DemoController implements WebMvcConfigurer{
-	
-//	@Autowired
-////	private MessageSource messageSource;
-//	
+public class DemoController implements WebMvcConfigurer {
+
+	// @Autowired
+	//// private MessageSource messageSource;
+	//
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping("/Demo1")
-//	@ResponseBody
+	// @ResponseBody
 	public String firstMethod(Model model) {
 		model.addAttribute("name", "yuyu");
 		return "Demo";
-		
-//		User user = userService.getUserById(1);
-//		model.addAttribute("user", user);
-//        return "UserResult";
+
+		// User user = userService.getUserById(1);
+		// model.addAttribute("user", user);
+		// return "UserResult";
 	}
-	
+
 	@GetMapping("/Main")
-//	@ResponseBody
+	// @ResponseBody
 	public String mainPage(Model model) {
 		List<User> users = userService.getAllUsers();
 		model.addAttribute("users", users);
 		return "Main";
 	}
-//	
-//	@Override
-//	public void addViewControllers(ViewControllerRegistry registry) {
-//		registry.addViewController("/Results").setViewName("Results");
-//	}
-//	
-//	@GetMapping("/")
-//	public String showForm(MyForm test) {
-//		return "MyForm";
-//	}
-//	
-//	@PostMapping("/")
-////	public String checkPersonInfo(@Valid MyForm myForm, BindingResult bindingResult) {
-//	public String checkPersonInfo(@Valid @ModelAttribute MyForm myForm, BindingResult bindingResult, Model model) {
-////		model.addAttribute("nameText", messageSource.getMessage("nameText", null, Locale.getDefault()));
-//		if (bindingResult.hasErrors()) {
-//			return "MyForm";
-//		}
-//		
-//		return "redirect:/Results";
-//	}
-//	
-	
+	//
+	// @Override
+	// public void addViewControllers(ViewControllerRegistry registry) {
+	// registry.addViewController("/Results").setViewName("Results");
+	// }
+	//
+	// @GetMapping("/")
+	// public String showForm(MyForm test) {
+	// return "MyForm";
+	// }
+	//
+	// @PostMapping("/")
+	//// public String checkPersonInfo(@Valid MyForm myForm, BindingResult
+	// bindingResult) {
+	// public String checkPersonInfo(@Valid @ModelAttribute MyForm myForm,
+	// BindingResult bindingResult, Model model) {
+	//// model.addAttribute("nameText", messageSource.getMessage("nameText", null,
+	// Locale.getDefault()));
+	// if (bindingResult.hasErrors()) {
+	// return "MyForm";
+	// }
+	//
+	// return "redirect:/Results";
+	// }
+	//
+
 }

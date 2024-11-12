@@ -66,14 +66,14 @@ public class UserController {
 		if (bindingResult.hasErrors()) {
 			return "CreateUserForm";
 		}
-		
+
 		boolean isExisted = userService.getUserByName(createUserForm.getName()) != null;
-		
+
 		if (isExisted) {
 			model.addAttribute("isExisted", isExisted);
 			return "CreateUserForm";
 		}
-		
+
 		User user = new User();
 		user.setName(createUserForm.getName());
 		user.setPassword(createUserForm.getPassword());
@@ -82,7 +82,7 @@ public class UserController {
 		redirectAttributes.addFlashAttribute("user", user);
 		return "redirect:/CreateUserResult";
 	}
-	
+
 	@GetMapping("/CreateUserResult")
 	public String showCreateUserResult(Model model) {
 		if (model.containsAttribute("user")) {
@@ -90,11 +90,10 @@ public class UserController {
 		}
 		return "CreateUserResult";
 	}
-	
+
 	@GetMapping("/Login")
 	public String showLogin() {
 		return "Login";
 	}
-	
 
 }
