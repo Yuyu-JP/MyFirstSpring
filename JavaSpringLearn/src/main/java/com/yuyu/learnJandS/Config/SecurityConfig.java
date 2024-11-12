@@ -63,7 +63,8 @@ public class SecurityConfig {
 	@Bean
 	PasswordEncoder passwordEncoder() {
         // This will store passwords in plain text
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+//        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+		return new BCryptPasswordEncoder();
     }
 	
 	@Bean

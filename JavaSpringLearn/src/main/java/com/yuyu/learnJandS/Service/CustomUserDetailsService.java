@@ -10,25 +10,30 @@ import com.yuyu.learnJandS.Model.User;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-	
+
 	@Autowired
 	UserService userService;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Find the user in the database
-        User user = userService.getUserByName(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        }
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// Find the user in the database
+		User user = userService.getUserByName(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("User not found with username: " + username);
+		}
 
-        UserDetails userdetails =
-        		org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder()
-   				.username(user.getName())
-   				.password(user.getPassword())
-   				.roles(user.getRole())
-   				.build();
-        
-        return userdetails;
-    }
+		UserDetails userdetails = org.springframework.security.core.userdetails.User.withUsername(user.getName())
+				.password(user.getPassword()) // This is the hashed password
+				.roles(user.getRole()) // Set user roles
+				.build();
+
+//        UserDetails userdetails =
+//        		org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder()
+//   				.username(user.getName())
+//   				.password(user.getPassword())
+//   				.roles(user.getRole())
+//   				.build();
+
+		return userdetails;
+	}
 }
