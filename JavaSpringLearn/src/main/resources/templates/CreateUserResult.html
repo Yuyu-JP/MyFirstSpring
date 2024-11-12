@@ -3,5 +3,10 @@
     <body>
 		<p th:text="|Successfully create user: ${user.name}!|" />
         <label th:text = "|Password is: ${user.password}"/>
+		<div>
+			<form th:action="@{/Main}" method="get" style="display: inline;">
+				<button type="submit" class="create-user-button">Main Page</button>
+			</form>
+		</div>
     </body>
 </html>
