@@ -30,16 +30,16 @@ public class DemoController implements WebMvcConfigurer {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/Demo1")
-	// @ResponseBody
-	public String firstMethod(Model model) {
-		model.addAttribute("name", "yuyu");
-		return "Demo";
-
-		// User user = userService.getUserById(1);
-		// model.addAttribute("user", user);
-		// return "UserResult";
-	}
+//	@GetMapping("/Demo1")
+//	// @ResponseBody
+//	public String firstMethod(Model model) {
+//		model.addAttribute("name", "yuyu");
+//		return "Demo";
+//
+//		// User user = userService.getUserById(1);
+//		// model.addAttribute("user", user);
+//		// return "UserResult";
+//	}
 
 	@GetMapping("/Main")
 	// @ResponseBody
