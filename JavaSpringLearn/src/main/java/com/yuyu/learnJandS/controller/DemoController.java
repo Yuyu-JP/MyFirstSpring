@@ -48,6 +48,11 @@ public class DemoController implements WebMvcConfigurer {
 		model.addAttribute("users", users);
 		return "Main";
 	}
+
+	@GetMapping("/ajaxDemo")
+	public String ajaxDemo() {
+		return "AjaxDemo";
+	}
 	//
 	// @Override
 	// public void addViewControllers(ViewControllerRegistry registry) {
