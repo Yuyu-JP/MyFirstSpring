@@ -29,7 +29,8 @@ public class SecurityConfig {
 			.authorizeHttpRequests((requests) -> requests
 				.requestMatchers("/signUp", "/ajaxDemo", "/js/**").permitAll()
 				.requestMatchers(HttpMethod.POST, "/RestDemo", "/api/submitData").permitAll()
-				.anyRequest().authenticated()
+//				.anyRequest().authenticated()
+				.anyRequest().permitAll() // for test purpose
 
 			)
 			.formLogin((form) -> form
